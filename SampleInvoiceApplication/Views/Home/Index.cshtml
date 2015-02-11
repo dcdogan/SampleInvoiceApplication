@@ -1,0 +1,259 @@
+﻿
+@{
+    ViewBag.Title = "Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/kendo/2014.2.716/kendo.common.min.css" rel="stylesheet" />
+<link href="~/Content/kendo/2014.2.716/kendo.blueopal.min.css" rel="stylesheet" />
+<link href="~/Content/kendo/2014.2.716/kendo.dataviz.min.css" rel="stylesheet" />
+<link href="~/Content/kendo/2014.2.716/kendo.dataviz.blueopal.min.css" rel="stylesheet" />
+
+<div id="topFilterContent" style="margin-right:-10px; margin-left:-10px; margin-top:-10px; height:60px; background-color:#a2afca; padding-top:20px; ">
+
+    <table style="width:100%">
+        <tr>
+            <td>
+                <text style="font-size:medium; margin-left:180px;">Settings > User Profiles</text>
+            </td>
+        </tr>
+        <tr>
+            <td><text style=" font-size:x-large;  margin-left:180px; color:#4777a4;">Invoices</text></td>
+
+        </tr>
+    </table>
+
+</div>
+
+@* Left Navigation Bar *@
+
+<div id="leftNavBar" style="float:left; width:220px; height: 700px; background-color:#a2afca; margin-left : -10px;">
+
+    <div id="leftNavBarContent" style="margin-left :20px; width:220px; height:700px; background-color :white;">
+
+        <div id="librariesContent" style="width: auto; height:70px;">
+            <label style="width: 200px; height: 20px; background-color:#c7cddd; color:#378ac9; text-align:center; position:absolute; "> Users</label>
+            <table id="libraryItems" style="position:absolute; margin-top: 20px; width:150px;">
+                <tr>
+                    <td>
+                        <input type="text" id="userSearchBox" style="width:200px;">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="invoicesContent" style="width: auto; height:600px;">
+
+            <div id="usersListTable"></div>
+
+
+        </div>
+
+    </div>
+</div>
+
+<div id="updateContent" style="height:700px; ">
+    <table id="gridFilters">
+        <tr style="width:100%">
+            <td>
+                <input id="adLookup" type="button" style="width:150px; margin-left: 50px; background-color: #83bcc1" value="AD Lookup">
+
+            </td>
+            <td>
+                <input type="button" style="width:150px; margin-left: 20px; background-color: #83bcc1" value="Remove user">
+            </td>
+            <td>
+                <input id="editProfile" type="button" style="width:150px; margin-left: 20px; background-color: #83bcc1" value="Edit Profile">
+            </td>
+
+
+        </tr>
+    </table>
+
+    <table style="width: 1300px; height:auto; background-color: #d6e9ea; margin-left : 100px;">
+
+        <tr style="height:50px; ">
+
+            <td style="width:30%;">
+                <text style="margin-left:50px;">First Name: </text><input data-bind="value:fnLabel, visible: isEnabled " />
+                <span data-bind="text:fnLabel, visible:textEnabled"></span>
+            </td>
+            <td style="width:20%">
+                Last Name: <input data-bind="value:lnLabel, visible: isEnabled " />
+                <span data-bind="text:lnLabel, visible:textEnabled"></span>
+            </td>
+            <td>
+                MI: <input data-bind="value:miLabel, visible: isEnabled " />
+                <span data-bind="text:miLabel, visible:textEnabled"></span>
+            </td>
+
+        </tr>
+        <tr style="height:50px;">
+
+            <td style="width:30%">
+                <text style="margin-left:50px;">Company: </text><input data-bind="value:companyLabel, visible: isEnabled " />
+                <span data-bind="text:companyLabel, visible:textEnabled"></span>
+            </td>
+            <td style="width:30%">
+                Department: <input data-bind="value:departmentLabel, visible: isEnabled " />
+                <span data-bind="text:departmentLabel, visible:textEnabled"></span>
+            </td>
+            <td>
+                Position: <input data-bind="value:positonLabel, visible: isEnabled " />
+                <span data-bind="text:positonLabel, visible:textEnabled"></span>
+            </td>
+
+        </tr>
+        <tr style="height:50px;">
+
+            <td style="width:30%">
+                <text style="margin-left:50px;">Email ID: </text><input data-bind="value:emailLabel, visible: isEnabled " />
+                <span data-bind="text:emailLabel, visible:textEnabled"></span>
+            </td>
+            <td style="width:30%">
+                Work Phone: <input data-bind="value:wpLabel, visible: isEnabled " />
+                <span data-bind="text:wpLabel, visible:textEnabled"></span>
+            </td>
+            <td>
+                Cell Phone: <input data-bind="value:cpLabel, visible: isEnabled " />
+                <span data-bind="text:cpLabel, visible:textEnabled"></span>
+            </td>
+
+        </tr>
+
+        <tr style="height:50px;">
+
+            <td style="width:20%"><text style="margin-left:50px;">System Access: </text></td>
+            <td>___________________________________________</td>
+
+        </tr>
+        <tr style="height:50px;">
+
+            <td style="width:20%">
+                <text style="margin-left:50px;">Application Role: </text><input data-bind="value:arLabel, visible: isEnabled " />
+                <span data-bind="text:arLabel, visible:textEnabled"></span>
+            </td>
+            <td style="width:20%">
+                <text style="margin-left:50px;">Active: </text><input data-bind="value:activeLabel, visible: isEnabled " />
+                <span data-bind="text:activeLabel, visible:textEnabled"></span>
+            </td>
+
+        </tr>
+        <tr style="height:50px;">
+
+            <td style="width:20%"><text style="margin-left:50px;">GL Code Ownership: </text></td>
+            <td>___________________________________________</td>
+
+        </tr>
+
+        <tr style="height:50px;">
+
+            <td style="width:20%">
+                <text style="margin-left:50px;">Gl Code Ownership: </text><input data-bind="value:glcLabel, visible: isEnabled " />
+                <span data-bind="text:glcLabel, visible:textEnabled"></span>
+            </td>
+
+        </tr>
+        <tr style="height:50px;">
+
+            <td style="width:20%"><text style="margin-left:50px;">Email Preferences: </text></td>
+            <td>___________________________________________</td>
+
+        </tr>
+
+        <tr style="height:50px;">
+
+            <td style="width:20%">
+                <text style="margin-left:50px;">Update Emails: </text><input data-bind="value:ueLabel, visible: isEnabled " />
+                <span data-bind="text:ueLabel, visible:textEnabled"></span>
+            </td>
+            <td style="width:20%">
+                <text style="margin-left:50px;">GL Code Emails: </text><input data-bind="value:glceLabel, visible: isEnabled " />
+                <span data-bind="text:glceLabel, visible:textEnabled"></span>
+            </td>
+
+        </tr>
+    </table>
+</div>
+
+
+
+
+<script>
+
+    var viewModel = kendo.observable({
+
+        isEnabled: false,
+        textEnabled: true,
+        fnLabel: "Application",
+        lnLabel: "Admin",
+        companyLabel: ".NET",
+        departmentLabel: "Administrator",
+        emailLabel:"admin@admin.com",
+        arLabel: "Admin"
+
+    });
+    kendo.bind($("#updateContent"), viewModel);
+
+
+    $("#usersListTable").kendoListView({
+
+            template: "<li>${FullName}</li>",
+            dataSource: new kendo.data.DataSource({
+
+                type: "json",
+                transport: {
+                    read: {
+                        url: "/api/wapi",
+                    }
+                }
+
+            }),
+            selectable: true,
+            change: function () {
+
+                var listView = $("#usersListTable").data("kendoListView");
+                var selectedItem = listView.dataItem(listView.select());
+                viewModel.set("fnLabel", selectedItem.UserFirstName);
+                viewModel.set("lnLabel", selectedItem.UserLastName);
+                viewModel.set("companyLabel", selectedItem.UserDefaultCompany);
+                viewModel.set("departmentLabel", selectedItem.UserDefaultDept);
+                viewModel.set("emailLabel", selectedItem.UserEmail);
+                viewModel.set("arLabel", selectedItem.UserRole);
+
+            }
+    });
+
+    $("#userSearchBox").bind("change paste keyup", function () {
+        //alert($(this).val());
+        var text = $(this).val();
+        if (text != "") {
+            $("#usersListTable").data("kendoListView").dataSource.filter({
+                field: 'FullName',
+                operator: 'startswith',
+                value: text
+            });
+        } else {
+            $("#usersListTable").data("kendoListView").dataSource.filter({});
+        }
+    });
+
+
+    $("#editProfile").bind("click", function () {
+
+        viewModel.set("isEnabled", true);
+        viewModel.set("textEnabled", false);
+
+
+    });
+
+
+    $("#adLookup").bind("click", function () {
+
+        viewModel.set("isEnabled", false);
+        viewModel.set("textEnabled", true);
+
+
+    });
+
+</script>

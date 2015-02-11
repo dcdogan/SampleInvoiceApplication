@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/kendo/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/kendo")
+    <link href="~/Content/Layout.css" rel="stylesheet" />
+</head>
+
+
+<body>
+    <div style="margin-right:-10px; margin-left:-10px; margin-top:-10px; height:120px; background-color:#a2afca; padding-top:20px; ">
+        <table style="background-color:white; width:98%; margin-left:auto; margin-right:auto;">
+            <tr>
+                <td style="float:left;">
+                    Perfumes & Cosmetics Company
+                </td>
+                <td style="float:left; margin-top:30px;">
+                    <text style="color:#437ba6; font-family:Arial; font-weight:bolder; font-size:24pt; ">
+                        Invoice Approval System
+                    </text>
+                </td>
+                <td rowspan="2" colspan="6" width="400px;">
+                    <div style="vertical-align:top; width:220px; height:100px;  float:left; ">
+                    </div>
+                </td>
+                
+                <td style="vertical-align:middle;">
+                    <text style="font-family:Arial; font-size:10pt; ">
+                        Search Site:&nbsp;
+                    </text>
+                    <input type="text">
+                    <img src="~/Content/Search-icon.png" style="height:15px; width:15px;" />
+                </td>
+            </tr>
+            <tr>
+                <td style="vertical-align:bottom; ">
+                    <input id="homeButton" type="button" />
+                </td>
+                <td style="vertical-align:bottom; float:right;">
+                    <input type="image" alt="submit" id="siteActionsButton" src="~/Content/Images/SiteActions.PNG" />
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div id="renderBody">
+        @RenderBody()
+    </div>
+</body>
+</html>
